@@ -38,6 +38,8 @@
     --pink: #ff3258;
     --white: #f0e9f2;
     --white-1: #e5e5e6da;
+    --heading: #374054;
+    --background-alt: #f2f2f5;
 
 
     --container-max-width: 1180px;
@@ -528,6 +530,39 @@ body:not(.user-is-tabbing) a:focus {
 
     .client__logo:not(:last-of-type) {
         margin-right: var(--gutter-medium);
+    }
+}
+
+/* --------------------------------------- */
+/* ----- Skils ------*/
+/* --------------------------------------- */
+
+#skills {
+    padding: 50px 15px;
+
+    h2 {
+        color: var(--white-1);
+        margin-bottom: 50px;
+        margin-left: var(--gutter-huge)
+    }
+
+    ul {
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        max-width: 800px;
+    }
+
+    li {
+        display: inline-block;
+        margin: 7px;
+        padding: 5px 10px;
+        color: var(--white-1);
+        background: darken(var(--background-alt), 5%);
+        list-style: none;
+        cursor: default;
+        font-size: 1.2em;
     }
 }
 

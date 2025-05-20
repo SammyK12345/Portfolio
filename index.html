@@ -94,13 +94,13 @@
                 <a href="https://www.rocketproplab.org/" class="link__text" target="_blank" rel="noopener noreferrer">
                   Visit Site <span>&rarr;</span>
                 </a>
-                <a href="https://github.com/SammyK12345/Hamburger_PCB" target="_blank">
-                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
-                </a>
               </div>
             </div>
-            <div class="work__image-box">
-              <img src="./images/3D view.png" class="work__image" alt="Project 1" width="900" height="auto"/>
+            <div class="carousel">
+              <button class="carousel-button prev">&#10094;</button>
+              <button class="carousel-button next">&#10095;</button>
+              <img src="./images/3D view.png" class="active" alt="Project 1" width="900" height="auto"/>
+              <img src="./images/Schematic.png" class="carousel img" alt="Project 1" width="900" height="auto"/>
             </div>
           </div>
 
@@ -168,8 +168,14 @@
                 <li>Analog Filters</li>
               </ul>
             </div>
-            <div class="work__image-box">
-              <img src="./images/underbelly.jpg" class="work__image" alt="Project 3" />
+            <div class="carousel2">
+              <button class="carousel-button prev">&#10094;</button>
+              <button class="carousel-button next">&#10095;</button>
+              <img src="./images/underbelly.jpg" class="active" alt="Project 3" />
+              <img src="./images/controller_schematic.png" alt="Project 3" width="900" height="auto"/>
+              <img src="./images/Pinaball_Machine_CAD.png" alt="Project 3" width="900" height="auto"/>
+              <img src="./images/bumper.jpg" alt="Project 3" width="900" height="auto"/>
+
             </div>
           </div>
         </div>
@@ -399,6 +405,72 @@
     <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
   </a>
   <script src="./index.js"></script>
+
+  <!--Carousell Button Script-->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const images = carousel.querySelectorAll('img');
+    const prevBtn = carousel.querySelector('.carousel-button.prev');
+    const nextBtn = carousel.querySelector('.carousel-button.next');
+    let currentIndex = 0;
+
+    // Initially hide all images except the first one
+    const updateCarousel = () => {
+      images.forEach((img, index) => {
+        img.style.display = index === currentIndex ? 'block' : 'none';
+      });
+    };
+
+    updateCarousel();
+
+    // Handle next button
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateCarousel();
+    });
+
+    // Handle previous button
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateCarousel();
+    });
+  });
+});
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+document.querySelectorAll('.carousel2').forEach(carousel => {
+  const images = carousel.querySelectorAll('img');
+  const prevBtn = carousel.querySelector('.carousel-button.prev');
+  const nextBtn = carousel.querySelector('.carousel-button.next');
+  let currentIndex = 0;
+
+  // Initially hide all images except the first one
+  const updateCarousel = () => {
+    images.forEach((img, index) => {
+      img.style.display = index === currentIndex ? 'block' : 'none';
+    });
+  };
+
+  updateCarousel();
+
+  // Handle next button
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateCarousel();
+  });
+
+  // Handle previous button
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateCarousel();
+  });
+});
+});
+</script>
+
 </body>
 
 </html>
